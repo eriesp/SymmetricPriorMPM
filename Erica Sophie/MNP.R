@@ -1,5 +1,5 @@
 # MNP sui nostri dati
-setwd("~/UNI/BAYESIAN STATISTICS/PTOJECT")
+setwd("~/UNI/BAYESIAN STATISTICS/Project-GIT/SymmetricPriorMPM")
 
 library(MNP)
 
@@ -17,7 +17,8 @@ colnames(prod_cov) = c("PPk_Stk", "PBB_Stk", "PFl_Stk", "PHse_Stk", "PGen_Stk", 
                        "PSS_Tub", "PPk_Tub", "PFl_Tub", "PHse_Tub")
 
 for (i in 1:(n/10)){
-  prod_cov[i,] = t(X[i:(i+9),42])
+  k=10*(i-1)
+  prod_cov[i,] = t(X[(k+1):(k+10),42])
 }
 
 agent_prod = cbind(agent_cov,prod_cov)
